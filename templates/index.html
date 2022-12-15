@@ -20,28 +20,28 @@
                 </div>
                 <body>
                     <form action="/create_instance" method="POST">
-                        <h1>Imágenes</h1>
+                        <h4>Imágenes</h4>
                         <select name="imagenes">
                             {% for image in images %}
                             <option>{{ image.id }}</option>
                             {% endfor %}
                         </select>
                     
-                        <h1>Redes</h1>
+                        <h4>Redes</h4>
                         <select name="redes">
                             {% for network in networks %}
                             <option>{{ network.id }}</option>
                             {% endfor %}
                         </select>
                     
-                        <h1>Flavors</h1>
+                        <h4>Flavors</h4>
                         <select name="flavors">
                             {% for flavor in flavors %}
                             <option>{{ flavor.id }}</option>
                             {% endfor %}
                         </select>
                     
-                        <h1>Llaves</h1>
+                        <h4>Llaves</h4>
                         <select name="llaves">
                             {% for keypair in keypairs %}
                             <option>{{ keypair.name }}</option>
