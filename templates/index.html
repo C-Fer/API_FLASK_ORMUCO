@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Make Your Server</title>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Tablero</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">Specs</div>
+            <div class="card-body">
+                <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Choose the specs for your server
+                </div>
+                <body>
+                    <form action="/create_instance" method="POST">
+                        <h1>Imágenes</h1>
+                        <select name="imagenes">
+                            {% for image in images %}
+                            <option>{{ image.id }}</option>
+                            {% endfor %}
+                        </select>
+                    
+                        <h1>Redes</h1>
+                        <select name="redes">
+                            {% for network in networks %}
+                            <option>{{ network.id }}</option>
+                            {% endfor %}
+                        </select>
+                    
+                        <h1>Flavors</h1>
+                        <select name="flavors">
+                            {% for flavor in flavors %}
+                            <option>{{ flavor.id }}</option>
+                            {% endfor %}
+                        </select>
+                    
+                        <h1>Llaves</h1>
+                        <select name="llaves">
+                            {% for keypair in keypairs %}
+                            <option>{{ keypair.name }}</option>
+                            {% endfor %}
+                        </select>
+                    
+                        <h1>Grupos de seguridad</h1>
+                        <select name="grupos">
+                            {% for group in securitygroups %}
+                            <option>{{ group.name }}</option>
+                            {% endfor %}
+                        </select>
+                
+                        <input type="submit" value="Enviar">
+                    </form>
+                </body>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Envio de Paquetes</title>
+{% endblock %}
+
+
+{% block content %}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Tablero</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+        <div class="card mb-4">
+            <div class="card-header">Images</div>
+            <div class="card-body">
+                <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table mr-1"></i>
+                    Imágenes Disponibles
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        {% if images|length < 1 %}
+                        <h4>There are no Images</h4>
+                        {% else %}
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>ID</th>
+                                  
+                                 
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>ID</th>
+                                   
+              
+                                    
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                {% for image in images %}
+                                <tr>
+                                    <td>{{ image.name }}</td>
+                                    <td>{{ image.id }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        {% endif %}
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
